@@ -1,0 +1,11 @@
+#github-flag img {
+  position: fixed; 
+  top: 50px; 
+  right: 0; 
+  border: 0;
+  z-index: 10;
+}
+
+body {
+  margin-top: 100px;
+}

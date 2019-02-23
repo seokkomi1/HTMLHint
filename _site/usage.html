@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+    <head>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109578378-3"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109578378-3');
+	</script>
+    <meta charset="utf-8">
+    <title>HTMLHint - The Static Code Analysis Tool you need for your HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/nav.css" rel="stylesheet">
+    <script src="/js/jquery-1.9.1.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="canonical" href="https://htmlhint.io">
+</head>
+  <body>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">HTMLHint</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="usage.html">Usage</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Rules
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Rule1</a>
+            <a class="dropdown-item" href="#">Rule2</a>
+            <!-- <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a> -->
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="develop.html">Develop</a>
+        </li>
+      </ul>
+    </div>
+  </nav> 
+      <div class="container">
+        <a id="github-flag" href="https://github.com/htmlhint/HTMLHint"><img src="img/forkme.png" alt="Fork me on GitHub"></a>
+        <h1 id="usage">Usage</h1>
+
+<p>You can learn how to use HTMLHint here.</p>
+
+<h2 id="cli">Cli</h2>
+
+<ol>
+  <li>
+    <p>install &amp; hint</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> npm install htmlhint -g
+ htmlhint -V
+ htmlhint --help
+ htmlhint www
+ htmlhint www/test.html
+ htmlhint www/**/*.xhtml
+ htmlhint www/**/*.{htm,html}
+ htmlhint http://www.alibaba.com/
+ cat test.html | htmlhint stdin
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>results</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    test.html
+       L5 |    &lt;/head&gt;
+               ^ &lt;title&gt; must be present in &lt;head&gt; tag. (title-require)
+       L8 |    &lt;/body&gt;
+               ^ Tag must be paired, missing: [ &lt;/div&gt; ], start tag match failed [ &lt;div&gt; ] on line 7. (tag-pair)
+
+ 2 errors in 1 files
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>config rules</p>
+
+    <p>search <code class="highlighter-rouge">.htmlhintrc</code> file in current directory and all parent directories:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> htmlhint
+ htmlhint test.html
+</code></pre></div>    </div>
+
+    <p>custom config file:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> htmlhint --config htmlhint.conf test.html
+</code></pre></div>    </div>
+
+    <p>custom rules:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> htmlhint --rules tag-pair,id-class-value=underline test.html
+</code></pre></div>    </div>
+
+    <p>Inline rules in <code class="highlighter-rouge">test.html</code>:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c">&lt;!--htmlhint tag-pair,id-class-value:underline --&gt;</span>
+ <span class="nt">&lt;html&gt;</span>
+ <span class="nt">&lt;head&gt;</span>
+     ...
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="javascript-with-node">JavaScript with node</h2>
+
+<ol>
+  <li>
+    <p>install</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> npm install htmlhint --save
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Hint your html code:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> var HTMLHint  = require("htmlhint").HTMLHint;
+ var messages = HTMLHint.verify('&lt;ul&gt;&lt;li&gt;&lt;/ul&gt;', {'tag-pair': true});
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="javascript-with-browser">JavaScript with browser</h2>
+
+<ol>
+  <li>
+    <p>Download: <a href="https://raw.github.com/htmlhint/HTMLHint/master/lib/htmlhint.js">https://raw.github.com/htmlhint/HTMLHint/master/lib/htmlhint.js</a></p>
+  </li>
+  <li>
+    <p>Hint your html code:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;script src="htmlhint.js"&gt;&lt;/script&gt;
+ &lt;script&gt;
+     var messages = HTMLHint.verify('&lt;ul&gt;&lt;li&gt;&lt;/ul&gt;', {'tag-pair': true});
+ &lt;/script&gt;
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="about-rules">About Rules</h2>
+
+<p>Read more about all rules: <a href="Rules">Rules</a></p>
+
+<p>If rules is undefined, it will use default ruleset:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "tagname-lowercase": true,
+    "attr-lowercase": true,
+    "attr-value-double-quotes": true,
+    "doctype-first": true,
+    "tag-pair": true,
+    "spec-char-escape": true,
+    "id-unique": true,
+    "src-not-empty": true,
+    "attr-no-duplication": true,
+    "title-require": true
+}
+</code></pre></div></div>
+
+<h2 id="about-htmlhintrc">About <code class="highlighter-rouge">.htmlhintrc</code></h2>
+
+<p>You can config the `.htmlhintrc’ like this, and place the file in your project root folder:</p>
+
+<p><code class="highlighter-rouge">.htmlhintrc</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "tagname-lowercase": true,
+    "attr-lowercase": true,
+    "attr-value-double-quotes": true,
+    "doctype-first": true
+}
+</code></pre></div></div>
+
+<h2 id="load-custom-rules">Load custom rules</h2>
+
+<p><code class="highlighter-rouge">rules/test-rule.js</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module.exports = function(HTMLHint) {
+    HTMLHint.addRule({
+        id: 'test-rule',
+        description: 'test rule.',
+        init: function(parser, reporter){
+            var self = this;
+            parser.addListener('tagstart', function(event){
+                var tagName = event.tagName.toLowerCase();
+                if(tagName === 'body'){
+                    reporter.warn('Found body.', event.line, event.col, self, event.raw);
+                }
+            });
+        }
+    });
+};
+</code></pre></div></div>
+
+<p>Load rules:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>htmlhint --rulesdir ./rules/ --rules test-rule
+</code></pre></div></div>
+
+<h2 id="how-to-report-bugs">How to report bugs</h2>
+
+<p>You can create a <a href="https://github.com/htmlhint/HTMLHint/issues/new">new issue</a> in GitHub and describe your problem or suggestion.</p>
+
+      </div>
+  </body>
+</html>
