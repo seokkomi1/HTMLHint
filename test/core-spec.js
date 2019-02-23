@@ -3,53 +3,62 @@ const expect = require('expect.js');
 const HTMLHint = require('../index').HTMLHint;
 
 describe('Core', function() {
-  it('Set false to rule no effected should result in an error', function() {
-    const code = '<img src="test.gif" />';
-    const messages = HTMLHint.verify(code, { 'alt-require': false });
+  it('Set false to rule not affected should result in an error', function() {
+    const code = '<head><script src="test.js"></script></head>';
+    const messages = HTMLHint.verify(code, {
+      'head-require': false
+    });
     expect(messages.length).to.be(0);
   });
 
   it('Not load default ruleset when use undefined ruleset should result in an error', function() {
     const code =
-      '<P ATTR=\'1\' id="a">><div id="a"><img src="" a="1" a="2"/></div>';
+      '<P ATTR=\'13\' id="UPPERCASE">><div id="aaaBBB" class="ccc-ddd"></div>';
     const messages = HTMLHint.verify(code);
-    expect(messages.length).to.be(9);
+    expect(messages.length).to.be(6);
   });
 
   it('Not load default ruleset when use empty ruleset should result in an error', function() {
     const code =
-      '<P ATTR=\'1\' id="a">><div id="a"><img src="" a="1" a="2"/></div>';
+      '<P ATTR=\'13\' id="UPPERCASE">><div id="aaaBBB" class="ccc-ddd"></div>';
     const messages = HTMLHint.verify(code, {});
-    expect(messages.length).to.be(9);
+    expect(messages.length).to.be(6);
   });
 
   it('Inline ruleset not worked should result in an error', function() {
-    let code = '<!-- htmlhint alt-require:true-->\r\n<img src="test.gif" />';
+    let code =
+      '<!-- htmlhint id-class-value:true-->\r\n<div id="aaaBBB" class="ccc-ddd"></div>';
     let messages = HTMLHint.verify(code, {
-      'alt-require': false
+      'id-class-value': false
     });
 
-    expect(messages.length).to.be(1);
-    expect(messages[0].rule.id).to.be('alt-require');
-    expect(messages[0].line).to.be(2);
+    expect(messages.length).to.be(2);
+    expect(messages[0].rule.id).to.be('id-class-value');
+    expect(messages[0].line).to.be(1);
     expect(messages[0].col).to.be(5);
+    expect(messages[0].type).to.be('warning');
+    expect(messages[1].rule.id).to.be('id-class-value');
+    expect(messages[1].line).to.be(1);
+    expect(messages[1].col).to.be(17);
+    expect(messages[1].type).to.be('warning');
 
-    code = '<!-- htmlhint alt-require:false-->\r\n<img src="test.gif" />';
+    code =
+      '<!-- htmlhint id-class-value:false-->\r\n<div id="aaaBBB" class="ccc-ddd"></div>';
     messages = HTMLHint.verify(code, {
-      'alt-require': true
+      'id-class-value': true
     });
     expect(messages.length).to.be(0);
   });
 
   it('Show formated result should not result in an error', function() {
     const code =
-      'tttttttttttttttttttttttttttttttttttt<div>中文<img src="test.gif" />tttttttttttttttttttttttttttttttttttttttttttttt';
+      'tttttttttttttttttttttttttttttttttttt中文<div id="aaaBBB" class="ccc-ddd">tttttttttttttttttttttttttttttttttttttttttttttt';
     const messages = HTMLHint.verify(code, {
       'tag-pair': true,
-      'alt-require': true
+      'id-class-value': true
     });
     let arrLogs = HTMLHint.format(messages);
-    expect(arrLogs.length).to.be(4);
+    expect(arrLogs.length).to.be(2);
 
     arrLogs = HTMLHint.format(messages, {
       colors: true,
