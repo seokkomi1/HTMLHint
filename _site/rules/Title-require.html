@@ -110,9 +110,30 @@
 </nav> 
       <div class="container">
         <a id="github-flag" href="https://github.com/htmlhint/HTMLHint"><img src="img/forkme.png" alt="Fork me on GitHub"></a>
-        <h1 id="about">About</h1>
+        <h1 id="rule-id-title-require">Rule ID: <code class="highlighter-rouge">title-require</code></h1>
 
-<p>HTMLHint is a Static Code Analysis Tool for HTML, you can use it with IDE or in build system.</p>
+<p><code class="highlighter-rouge">&lt;title&gt;</code> must be present in <code class="highlighter-rouge">&lt;head&gt;</code> tag.</p>
+
+<p>Level: <code class="highlighter-rouge">error</code></p>
+
+<p>good:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;&lt;head&gt;&lt;title&gt;</span>test<span class="nt">&lt;/title&gt;&lt;/head&gt;&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>bad:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;/html&gt;</span>
+<span class="nt">&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;/html&gt;</span>
+<span class="nt">&lt;html&gt;&lt;title&gt;&lt;/title&gt;&lt;head&gt;&lt;/head&gt;&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>config value:</p>
+
+<ol>
+  <li>true: enable rule</li>
+  <li>false: disable rule</li>
+</ol>
 
       </div>
   </body>

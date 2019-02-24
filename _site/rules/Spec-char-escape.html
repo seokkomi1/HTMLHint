@@ -110,9 +110,28 @@
 </nav> 
       <div class="container">
         <a id="github-flag" href="https://github.com/htmlhint/HTMLHint"><img src="img/forkme.png" alt="Fork me on GitHub"></a>
-        <h1 id="about">About</h1>
+        <h1 id="rule-id-spec-char-escape">Rule ID: <code class="highlighter-rouge">spec-char-escape</code></h1>
 
-<p>HTMLHint is a Static Code Analysis Tool for HTML, you can use it with IDE or in build system.</p>
+<p>Special characters must be escaped.</p>
+
+<p>Level: <code class="highlighter-rouge">error</code></p>
+
+<p>good:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;span&gt;aaa&amp;gt;bbb&amp;lt;ccc&lt;/span&gt;
+</code></pre></div></div>
+
+<p>bad:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;span&gt;aaa&gt;bbb&lt;ccc&lt;/span&gt;
+</code></pre></div></div>
+
+<p>config value:</p>
+
+<ol>
+  <li>true: enable rule</li>
+  <li>false: disable rule</li>
+</ol>
 
       </div>
   </body>

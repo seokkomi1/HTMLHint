@@ -110,9 +110,28 @@
 </nav> 
       <div class="container">
         <a id="github-flag" href="https://github.com/htmlhint/HTMLHint"><img src="img/forkme.png" alt="Fork me on GitHub"></a>
-        <h1 id="about">About</h1>
+        <h1 id="rule-id-head-script-disabled">Rule ID: <code class="highlighter-rouge">head-script-disabled</code></h1>
 
-<p>HTMLHint is a Static Code Analysis Tool for HTML, you can use it with IDE or in build system.</p>
+<p>The script tag can not be used in head.</p>
+
+<p>Level: <code class="highlighter-rouge">warning</code></p>
+
+<p>good:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;body&gt;&lt;script type="text/javascript" src="test.js"&gt;&lt;/script&gt;&lt;/body&gt;
+</code></pre></div></div>
+
+<p>bad:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;head&gt;&lt;script type="text/javascript" src="test.js"&gt;&lt;/script&gt;&lt;/head&gt;
+</code></pre></div></div>
+
+<p>config value:</p>
+
+<ol>
+  <li>true: enable rule</li>
+  <li>false: disable rule</li>
+</ol>
 
       </div>
   </body>

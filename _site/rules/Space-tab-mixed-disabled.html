@@ -110,9 +110,30 @@
 </nav> 
       <div class="container">
         <a id="github-flag" href="https://github.com/htmlhint/HTMLHint"><img src="img/forkme.png" alt="Fork me on GitHub"></a>
-        <h1 id="about">About</h1>
+        <h1 id="rule-id-space-tab-mixed-disabled">Rule ID: <code class="highlighter-rouge">space-tab-mixed-disabled</code></h1>
 
-<p>HTMLHint is a Static Code Analysis Tool for HTML, you can use it with IDE or in build system.</p>
+<p>Spaces and tabs can not mixed in front of line.</p>
+
+<p>Level: <code class="highlighter-rouge">warning</code></p>
+
+<p>good:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   →   →&lt;img src="tab.png" /&gt;
+········&lt;img src="space.png" /&gt;
+</code></pre></div></div>
+<p>bad:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   →····&lt;img src="tab_before_space.png" /&gt;
+····   →&lt;img src="space_before_tab.png" /&gt;
+</code></pre></div></div>
+<p>Note: in the examples above, spaces and tabs are represented by <code class="highlighter-rouge">·</code> and <code class="highlighter-rouge">→</code>, respectively, to make the difference visible.</p>
+
+<p>config value:</p>
+
+<ol>
+  <li>space: space mode (only space for indentation)</li>
+  <li>space4: space mode and require length</li>
+  <li>tab: tab mode (only tab for indentation)</li>
+  <li>false: disable rule</li>
+</ol>
 
       </div>
   </body>

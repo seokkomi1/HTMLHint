@@ -110,9 +110,28 @@
 </nav> 
       <div class="container">
         <a id="github-flag" href="https://github.com/htmlhint/HTMLHint"><img src="img/forkme.png" alt="Fork me on GitHub"></a>
-        <h1 id="about">About</h1>
+        <h1 id="rule-id-attr-value-not-empty">Rule ID: <code class="highlighter-rouge">attr-value-not-empty</code></h1>
 
-<p>HTMLHint is a Static Code Analysis Tool for HTML, you can use it with IDE or in build system.</p>
+<p>Attribute must set value.</p>
+
+<p>Level: <code class="highlighter-rouge">warning</code></p>
+
+<p>good:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;input type="button" disabled="disabled"&gt;
+</code></pre></div></div>
+
+<p>bad:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;input type="button" disabled&gt;
+</code></pre></div></div>
+
+<p>config value:</p>
+
+<ol>
+  <li>true: enable rule</li>
+  <li>false: disable rule</li>
+</ol>
 
       </div>
   </body>

@@ -110,9 +110,25 @@
 </nav> 
       <div class="container">
         <a id="github-flag" href="https://github.com/htmlhint/HTMLHint"><img src="img/forkme.png" alt="Fork me on GitHub"></a>
-        <h1 id="about">About</h1>
+        <h1 id="rule-id-href-abs-or-rel">Rule ID: <code class="highlighter-rouge">href-abs-or-rel</code></h1>
 
-<p>HTMLHint is a Static Code Analysis Tool for HTML, you can use it with IDE or in build system.</p>
+<p>Href must be absolute or relative.</p>
+
+<p>Level: <code class="highlighter-rouge">warning</code></p>
+
+<p>good:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>abs: &lt;a href="http://www.alibaba.com/"&gt;test1&lt;/a&gt; &lt;a href="https://www.alipay.com/"&gt;test2&lt;/a&gt;
+rel: &lt;a href="test.html"&gt;test1&lt;/a&gt; &lt;a href="../test.html"&gt;test2&lt;/a&gt;
+</code></pre></div></div>
+
+<p>config value:</p>
+
+<ol>
+  <li>abs: absolute mode</li>
+  <li>rel: relative mode</li>
+  <li>false: disable rule</li>
+</ol>
 
       </div>
   </body>

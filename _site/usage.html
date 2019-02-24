@@ -26,39 +26,88 @@
 </head>
   <body>
       <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">HTMLHint</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="usage.html">Usage</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Rules
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Rule1</a>
-            <a class="dropdown-item" href="#">Rule2</a>
-            <!-- <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a> -->
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="develop.html">Develop</a>
-        </li>
-      </ul>
-    </div>
-  </nav> 
+  <a class="navbar-brand" href="#">HTMLHint</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="usage.html">Usage</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Rules
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+          <a class="dropdown-item" href="/rules/Alt-require.html">Alt-require</a>
+          
+          <a class="dropdown-item" href="/rules/Attr-lowercase.html">Attr-lowercase</a>
+          
+          <a class="dropdown-item" href="/rules/Attr-no-duplication.html">Attr-no-duplication</a>
+          
+          <a class="dropdown-item" href="/rules/Attr-unsafe-chars.html">Attr-unsafe-chars</a>
+          
+          <a class="dropdown-item" href="/rules/Attr-value-double-quotes.html">Attr-value-double-quotes</a>
+          
+          <a class="dropdown-item" href="/rules/Attr-value-not-empty.html">Attr-value-not-empty</a>
+          
+          <a class="dropdown-item" href="/rules/Csslint.html">Csslint</a>
+          
+          <a class="dropdown-item" href="/rules/Doctype-first.html">Doctype-first</a>
+          
+          <a class="dropdown-item" href="/rules/Doctype-html5.html">Doctype-html5</a>
+          
+          <a class="dropdown-item" href="/rules/Head-script-disabled.html">Head-script-disabled</a>
+          
+          <a class="dropdown-item" href="/rules/Href-abs-or-rel.html">Href-abs-or-rel</a>
+          
+          <a class="dropdown-item" href="/rules/Id-class-ad-disabled.html">Id-class-ad-disabled</a>
+          
+          <a class="dropdown-item" href="/rules/Id-class-value.html">Id-class-value</a>
+          
+          <a class="dropdown-item" href="/rules/Id-unique.html">Id-unique</a>
+          
+          <a class="dropdown-item" href="/rules/Inline-script-disabled.html">Inline-script-disabled</a>
+          
+          <a class="dropdown-item" href="/rules/Inline-style-disabled.html">Inline-style-disabled</a>
+          
+          <a class="dropdown-item" href="/rules/Jshint.html">Jshint</a>
+          
+          <a class="dropdown-item" href="/rules/Space-tab-mixed-disabled.html">Space-tab-mixed-disabled</a>
+          
+          <a class="dropdown-item" href="/rules/Spec-char-escape.html">Spec-char-escape</a>
+          
+          <a class="dropdown-item" href="/rules/Src-not-empty.html">Src-not-empty</a>
+          
+          <a class="dropdown-item" href="/rules/Style-disabled.html">Style-disabled</a>
+          
+          <a class="dropdown-item" href="/rules/Tag-pair.html">Tag-pair</a>
+          
+          <a class="dropdown-item" href="/rules/Tag-self-close.html">Tag-self-close</a>
+          
+          <a class="dropdown-item" href="/rules/Tagname-lowercase.html">Tagname-lowercase</a>
+          
+          <a class="dropdown-item" href="/rules/Title-require.html">Title-require</a>
+          
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="develop.html">Develop</a>
+      </li>
+    </ul>
+  </div>
+</nav> 
       <div class="container">
         <a id="github-flag" href="https://github.com/htmlhint/HTMLHint"><img src="img/forkme.png" alt="Fork me on GitHub"></a>
         <h1 id="usage">Usage</h1>
@@ -68,20 +117,16 @@
 <h2 id="cli">Cli</h2>
 
 <ol>
-  <li>
-    <p>install &amp; hint</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> npm install htmlhint -g
- htmlhint -V
- htmlhint --help
- htmlhint www
- htmlhint www/test.html
- htmlhint www/**/*.xhtml
- htmlhint www/**/*.{htm,html}
- htmlhint http://www.alibaba.com/
- cat test.html | htmlhint stdin
-</code></pre></div>    </div>
-  </li>
+  <li>install &amp; hint
+     npm install htmlhint -g
+     htmlhint -V
+     htmlhint –help
+     htmlhint www
+     htmlhint www/test.html
+     htmlhint www/<em>*/</em>.xhtml
+     htmlhint www/<em>*/</em>.{htm,html}
+     htmlhint http://www.alibaba.com/
+     cat test.html | htmlhint stdin</li>
   <li>
     <p>results</p>
 

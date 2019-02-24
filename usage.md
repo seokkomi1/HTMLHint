@@ -9,7 +9,6 @@ You can learn how to use HTMLHint here.
 ## Cli
 
 1. install & hint
-
         npm install htmlhint -g
         htmlhint -V
         htmlhint --help
@@ -19,7 +18,6 @@ You can learn how to use HTMLHint here.
         htmlhint www/**/*.{htm,html}
         htmlhint http://www.alibaba.com/
         cat test.html | htmlhint stdin
-
 2. results
 
            test.html

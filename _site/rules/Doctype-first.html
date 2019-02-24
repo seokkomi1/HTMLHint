@@ -110,9 +110,30 @@
 </nav> 
       <div class="container">
         <a id="github-flag" href="https://github.com/htmlhint/HTMLHint"><img src="img/forkme.png" alt="Fork me on GitHub"></a>
-        <h1 id="about">About</h1>
+        <h1 id="rule-id-doctype-first">Rule ID: <code class="highlighter-rouge">doctype-first</code></h1>
 
-<p>HTMLHint is a Static Code Analysis Tool for HTML, you can use it with IDE or in build system.</p>
+<p>Doctype must be first.</p>
+
+<p>Level: <code class="highlighter-rouge">error</code></p>
+
+<p>good:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="cp">&lt;!DOCTYPE HTML&gt;</span><span class="nt">&lt;html&gt;</span>
+</code></pre></div></div>
+
+<p>bad:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```html
+<span class="c">&lt;!--comment--&gt;</span><span class="cp">&lt;!DOCTYPE HTML&gt;</span><span class="nt">&lt;html&gt;</span>
+```
+</code></pre></div></div>
+
+<p>config value:</p>
+
+<ol>
+  <li>true: enable rule</li>
+  <li>false: disable rule</li>
+</ol>
 
       </div>
   </body>

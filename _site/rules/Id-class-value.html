@@ -110,9 +110,27 @@
 </nav> 
       <div class="container">
         <a id="github-flag" href="https://github.com/htmlhint/HTMLHint"><img src="img/forkme.png" alt="Fork me on GitHub"></a>
-        <h1 id="about">About</h1>
+        <h1 id="rule-id-id-class-value">Rule ID: <code class="highlighter-rouge">id-class-value</code></h1>
 
-<p>HTMLHint is a Static Code Analysis Tool for HTML, you can use it with IDE or in build system.</p>
+<p>Id and class value must meet some rules: underline, dash, hump.</p>
+
+<p>Level: <code class="highlighter-rouge">warning</code></p>
+
+<p>good:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>underline: &lt;div id="aaa_bbb"&gt;
+dash: &lt;div id="aaa-bbb"&gt;
+hump: &lt;div id="aaaBbb"&gt;
+</code></pre></div></div>
+
+<p>config value:</p>
+
+<ol>
+  <li>underline: underline mode ( aaa_bb )</li>
+  <li>dash: enable rule ( aaa-bbb )</li>
+  <li>hump: enable rule ( aaaBbb )</li>
+  <li>false: disable rule</li>
+</ol>
 
       </div>
   </body>

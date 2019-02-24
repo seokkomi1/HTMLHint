@@ -110,9 +110,48 @@
 </nav> 
       <div class="container">
         <a id="github-flag" href="https://github.com/htmlhint/HTMLHint"><img src="img/forkme.png" alt="Fork me on GitHub"></a>
-        <h1 id="about">About</h1>
+        <h1 id="rule-id-src-not-empty">Rule ID: <code class="highlighter-rouge">src-not-empty</code></h1>
 
-<p>HTMLHint is a Static Code Analysis Tool for HTML, you can use it with IDE or in build system.</p>
+<p>Src of img(script,link) must set value.</p>
+
+<p>Emtpy of src will visit current page twice.</p>
+
+<p>Level: <code class="highlighter-rouge">error</code></p>
+
+<p>good:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;img src="test.png" /&gt;
+&lt;script src="test.js"&gt;&lt;/script&gt;
+&lt;link href="test.css" type="text/css" /&gt;
+&lt;embed src="test.swf"&gt;
+&lt;bgsound src="test.mid" /&gt;
+&lt;iframe src="test.html"&gt;
+&lt;object data="test.swf"&gt;
+</code></pre></div></div>
+
+<p>bad:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;img src /&gt;
+&lt;script src=""&gt;&lt;/script&gt;
+&lt;script src&gt;&lt;/script&gt;
+&lt;link href="" type="text/css" /&gt;
+&lt;link href type="text/css" /&gt;
+&lt;embed src=""&gt;
+&lt;embed src&gt;
+&lt;bgsound src="" /&gt;
+&lt;bgsound src /&gt;
+&lt;iframe src=""&gt;
+&lt;iframe src&gt;
+&lt;object data=""&gt;
+&lt;object data&gt;
+</code></pre></div></div>
+
+<p>config value:</p>
+
+<ol>
+  <li>true: enable rule</li>
+  <li>false: disable rule</li>
+</ol>
 
       </div>
   </body>
